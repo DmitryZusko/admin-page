@@ -34,7 +34,7 @@ const CustomNavbar = () => {
     }
 
     return (
-    <AppBar position="fixed" sx={{zIndex: theme.zIndex.drawer + 1}}>
+    <AppBar sx={{zIndex: theme.zIndex.drawer + 1}}>
         <Toolbar>
             {isMobile &&
             <IconButton 

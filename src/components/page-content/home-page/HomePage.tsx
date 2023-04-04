@@ -1,7 +1,7 @@
 import CustomNavbar from "@/components/CustomNavbar/CustomNavbar";
 import FlexDrawer from "@/components/FlexDrawer/FlexDrawer";
 import HomeComponent from "@/components/Home/HomeComponent";
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 
 
 const HomePage = () => {

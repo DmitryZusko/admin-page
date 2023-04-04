@@ -1,15 +1,15 @@
-import { Box, Collapse, Divider, Drawer, List, ListItem, styled, Toolbar } from "@mui/material";
-import { useMemo, useState } from "react";
+import { Box, Collapse, Drawer, List, ListItem } from "@mui/material";
+import { useMemo } from "react";
 import {DashboardTwoTone, ListAltTwoTone, PeopleAltTwoTone, Inventory2TwoTone, 
     StoreMallDirectoryTwoTone, CategoryTwoTone, StarRateTwoTone,
     ArrowLeftRounded, ArrowRightRounded} from '@mui/icons-material';
 import IconButton from "@mui/material/IconButton";
-import StarRateTwoToneIcon from '@mui/icons-material/StarRateTwoTone';
 import Typography from "@mui/material/Typography";
 import styles from "./styles";
 import { useDispatch, useSelector } from 'react-redux'
 import { drawerState } from "@/redux/Drawler";
 import { setDrawerState, toogleDrawer } from "@/redux/Drawler/slice";
+import NavbarMargin from "../NavbarMargin/NavbarMargin";
 
 
 const FlexDrawer = () => {
@@ -40,14 +40,6 @@ const FlexDrawer = () => {
         dispatch(setDrawerState(false));
     };
 
-    const DrawerHeader = styled("div")(({theme}) => ({
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "flex-end",
-        padding: theme.spacing(0, 1),
-        ...theme.mixins.toolbar,
-    }));
-
     const drawerFullItems = useMemo(() => {
         return (
             <List disablePadding>
@@ -63,20 +55,6 @@ const FlexDrawer = () => {
         )
     }, [ITEMS, ITEM_ICONS])
 
-    const drawerShortItems = useMemo(() => {
-        return (
-            <List>
-                {ITEMS.map((item, index) => (
-                    <ListItem key={item}>
-                        <IconButton>
-                            {ITEM_ICONS[index]}
-                        </IconButton>
-                    </ListItem>
-                ))}
-            </List>
-        )
-    }, [ITEMS, ITEM_ICONS])
-
     return (
         <>
         <Drawer
@@ -85,7 +63,7 @@ const FlexDrawer = () => {
             onClose={closeFullItems}
             sx={styles.mobileDrawer}
         >
-            <DrawerHeader />
+            <NavbarMargin />
             {drawerFullItems}
             <Box sx={{ flexGrow: "1"}}/>
             <IconButton size="large" onClick={closeFullItems}>
@@ -98,7 +76,7 @@ const FlexDrawer = () => {
             onMouseLeave={closeFullItems}
             sx={styles.desktopDrawer}
         >
-            <DrawerHeader />
+            <NavbarMargin />
             <Collapse in={isOpen} collapsedSize="59px" orientation="horizontal">
                 {drawerFullItems}
             </Collapse>
