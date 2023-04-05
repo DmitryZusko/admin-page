@@ -1,3 +1,4 @@
+import CustomFab from "@/components/CustomFab/CustomFab";
 import CustomNavbar from "@/components/CustomNavbar/CustomNavbar";
 import FlexDrawer from "@/components/FlexDrawer/FlexDrawer";
 import HomeComponent from "@/components/Home/HomeComponent";
