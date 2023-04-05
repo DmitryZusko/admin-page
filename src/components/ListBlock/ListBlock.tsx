@@ -32,7 +32,6 @@ const ListBlock = () => {
         setIsLoading(true);
         axios.get(`${baseUrl}?_page=${currentPage}&_limit=${limit}`).then((response) => {
             setItems(response.data);
-            console.log(response.headers.xTotalCount);
         });
 
         endLoadingWithTimeout();
@@ -45,7 +44,6 @@ const ListBlock = () => {
     };
 
     const generateRandomNumber = () => {
-        console.log("rnd");
         return Math.random() * 100;
     };
 

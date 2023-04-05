@@ -1,5 +1,6 @@
 import { EnhancedStore , configureStore} from "@reduxjs/toolkit";
 import { drawerReducer } from "./Drawler";
+import { mapControlReducer } from "./MapControl";
 
 
 let store: EnhancedStore;
@@ -8,6 +9,7 @@ const createStore = <T>(preloadedState?: T) =>
     configureStore({
         reducer: {
             drawer: drawerReducer,
+            map: mapControlReducer,
         },
         preloadedState,
     });
